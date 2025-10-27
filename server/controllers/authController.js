@@ -1,4 +1,4 @@
-import connectDB from "../db/connection.js";
+import DBConnect from "../config/dbConn.js";
 import UserModel from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
@@ -9,7 +9,7 @@ import jwt from "jsonwebtoken"
 const login = async  (req , res) => {
     try{
         const {userEmail , userPassword} = req.body;
-        connectDB()
+        DBConnect
         const user = await UserModel.findOne({userEmail})
         if(!user){
             return res.status(404).json({success: false , message: "Compte n'existe pas"})

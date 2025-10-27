@@ -155,7 +155,7 @@ export const Categories = () => {
       const confirmDelete = window.confirm("Êtes-vous sûr de vouloir supprimer cette catégorie ?");
     console.log(confirmDelete)
     if(confirmDelete){
-        const response = await axios.delete(`http://localhost:3001/api/category/${id}` , 
+        const response = await axios.delete(`${import.meta.env.VITE_BASE_URL}/api/category/${id}` , 
           {
             headers : {
               Authorization : `Bearer ${localStorage.getItem("info-token")}`,

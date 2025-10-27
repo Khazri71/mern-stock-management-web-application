@@ -35,7 +35,6 @@ const handleGetUser = async () => {
            name : data.data.userName,
            email : data.data.userEmail,
            address : data.data.userAddress,
-           password : data.data.userPassword
          })
     }else{
          console.log(data.message);
@@ -212,18 +211,14 @@ const handleSubmitUpdateUser = async (e) => {
               ) : (
                 <>
                 <button
-                type="submit"
                 className="cursor-pointer block text-sm/6 font-medium bg-green-700 hover:bg-green-600 text-white py-2 px-3 rounded-lg mr-2 w-full"
-             
-              
               >
                 Conserver 
               </button>
 
               <button
-                type="submit"
                 className="cursor-pointer block text-sm/6 font-medium bg-red-700 hover:bg-red-600 text-white py-2 px-3 rounded-lg mr-2 w-full"
-              
+              onClick={() => setEdit(false)}
               
               >
                 Annuler 

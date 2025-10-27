@@ -6,7 +6,7 @@ import ProductModel from "../models/Product.js"
 const getDashData = async (req , res) => {
 
     try{
-      const totalProducts = await ProductModel.countDocuments();
+      const totalProducts = await ProductModel.countDocuments({isDeleted : false});
 
       const resultStock = await ProductModel.aggregate([
         {$group : {_id : null , totalStock : {$sum :"$productStock"}}}

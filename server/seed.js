@@ -1,14 +1,15 @@
-import connectDB from "./db/connection.js";
+import DBConnect from "./config/dbConn.js";
 import UserModel from "./models/User.js";
 import bcrypt from "bcrypt"
-
+import dotenv from "dotenv";
+dotenv.config();
 
 
 
 
 const register = async () => {
    try{
-    connectDB();
+     DBConnect();
     const hashPassword = await bcrypt.hash("admin" , 10);
     const newUser = new UserModel({
         userName: "admin",

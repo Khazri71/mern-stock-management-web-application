@@ -92,14 +92,13 @@ const updateUser = async (req , res) => {
             const hashedPassword = await bcrypt.hash(password , 10);
             updatedData.userPassword= hashedPassword;
         }
-
         const existUser = await UserModel.findOne({_id : userId});
         if(!existUser){
             return res.status(404).json({success:true , message:"Utilisateur introuvable"});
         }
 
         const updatedUser = await UserModel.findByIdAndUpdate(userId , updatedData ,  { new: true } ).select("-userPassword");
-                return res.status(200).json({success : true , message : "Utilisateur modifier avec succès" , data : updatedUser})
+        return res.status(200).json({success : true , message : "Utilisateur modifier avec succès" , data : updatedUser})
     }catch(error){
         console.error("Erreur serveur lors de la modification d'utilisateur" , error);
         return res.status(500).json({success : false , message : "Erreur de serveur"})
