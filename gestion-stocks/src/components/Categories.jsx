@@ -97,7 +97,7 @@ export const Categories = () => {
       const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/category` , 
       {
         headers : {
-          Authorization : `Bearer ${localStorage.getItem("info-token")}`,
+          Authorization: `Bearer ${localStorage.getItem("info-token")}`,
         }
       });
 

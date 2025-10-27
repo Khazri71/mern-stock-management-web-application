@@ -18,7 +18,7 @@ const addUser = async (req , res) => {
 
         const hashedPassword = await bcrypt.hash(userPassword, 10);
 
-        const newUser = new UserModel({
+        const newUser =  new UserModel({
              userName,
              userEmail,
              userPassword : hashedPassword ,
